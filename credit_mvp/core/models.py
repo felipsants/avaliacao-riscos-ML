@@ -1,7 +1,7 @@
 from django.db import models
 
-# Create your models here.
 class Cliente(models.Model):
+    nome = models.CharField(max_length=100)  # novo campo nome
     idade = models.IntegerField()
     salario_mensal = models.FloatField()
     score_credito = models.FloatField()
@@ -23,4 +23,4 @@ class Cliente(models.Model):
     data_analise = models.DateTimeField(null=True, blank=True)
     
     def __str__(self):
-        return f"Cliente {self.id} - Score: {self.score_risco:.2f}" if self.score_risco else f"Cliente {self.id}"
+        return f"{self.nome} (ID {self.id}) - Score: {self.score_risco:.2f}" if self.score_risco else f"{self.nome} (ID {self.id})"
